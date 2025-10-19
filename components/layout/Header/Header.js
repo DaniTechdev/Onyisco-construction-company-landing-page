@@ -21,7 +21,10 @@ const Header = () => {
         <nav className={styles.nav}>
           <div className={styles.logo}>
             <Link href="/">
-              <span className={styles.logoText}>RoofMaster</span>
+              <span className={styles.logoText}>
+                RoofMaster <br />
+                Onyisco <br /> Construction{" "}
+              </span>
             </Link>
           </div>
 
@@ -45,6 +48,9 @@ const Header = () => {
             <Link href="#contact" className={styles.navLink}>
               Contact
             </Link>
+            <button onClick={toggleMenu} className={styles.navLinkClose}>
+              x
+            </button>
           </div>
 
           <div className={styles.navActions}>

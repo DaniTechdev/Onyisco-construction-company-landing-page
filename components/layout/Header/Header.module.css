@@ -95,7 +95,7 @@
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
   }
 
   .navLinksOpen {
@@ -106,5 +106,15 @@
 
   .navActions {
     display: none;
+  }
+
+  .navLinkClose {
+    /* margin-top: 1rem; */
+    text-align: center;
+    padding: 0.15rem 0.35rem;
+    font-size: 15px;
+    color: red;
+    font-weight: 600;
+    border-radius: 4px;
   }
 }
