@@ -22,7 +22,7 @@ const Header = () => {
           <div className={styles.logo}>
             <Link href="/">
               <span className={styles.logoText}>
-                RoofMaster <br /> Onyisco Construction
+                RoofMaster <br /> Onyisco <br /> Construction
               </span>
             </Link>
           </div>
