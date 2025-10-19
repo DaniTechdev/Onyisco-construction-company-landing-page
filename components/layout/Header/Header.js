@@ -21,9 +21,7 @@ const Header = () => {
         <nav className={styles.nav}>
           <div className={styles.logo}>
             <Link href="/">
-              <span className={styles.logoText}>
-                RoofMaster <br /> Onyisco <br /> Construction
-              </span>
+              <span className={styles.logoText}>RoofMaster</span>
             </Link>
           </div>
 
