@@ -27,7 +27,7 @@ const Footer = () => {
                 Portfolio
               </Link>
               <Link href="#contact" className={styles.footerLink}>
-                Contact
+                Contact Us
               </Link>
             </div>
           </div>
