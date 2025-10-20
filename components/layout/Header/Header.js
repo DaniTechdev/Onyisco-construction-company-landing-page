@@ -22,9 +22,9 @@ const Header = () => {
           <div className={styles.logo}>
             <Link href="/">
               <span className={styles.logoText}>
-                RoofMaster <br />
-                Onyisco <br /> Construction{" "}
+                RoofMaster Onyisco Construction{" "}
               </span>
+              <span></span>
             </Link>
           </div>
 
@@ -58,6 +58,9 @@ const Header = () => {
             <Button variant="primary" size="medium">
               Get Quote
             </Button>
+          </div>
+          <div className={styles.toggleMobile}>
+            <ThemeToggle />
           </div>
 
           <button

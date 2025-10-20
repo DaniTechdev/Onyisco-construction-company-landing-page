@@ -22,6 +22,7 @@
 
 .logoText {
   color: var(--primary);
+  font-size: 20px;
 }
 
 .navLinks {
@@ -78,11 +79,32 @@
   transition: all 0.3s ease;
 }
 
+.navLinkClose {
+  display: none;
+}
+.toggleMobile {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .logoText {
+    color: var(--primary);
+    font-size: 16px;
+    width: fit-content;
+  }
+  .navLinkClose {
+    display: block;
+  }
+}
+
 @media (max-width: 768px) {
   .menuToggle {
     display: flex;
   }
 
+  .navLinkClose {
+    display: block;
+  }
   .navLinks {
     position: absolute;
     top: 100%;
@@ -95,7 +117,7 @@
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
   }
 
   .navLinksOpen {
@@ -106,6 +128,9 @@
 
   .navActions {
     display: none;
+  }
+  .toggleMobile {
+    display: block;
   }
 
   .navLinkClose {
