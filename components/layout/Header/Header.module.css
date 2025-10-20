@@ -23,6 +23,7 @@
 .logoText {
   color: var(--primary);
   font-size: 20px;
+  line-height: normal;
 }
 
 .navLinks {
@@ -91,6 +92,7 @@
     color: var(--primary);
     font-size: 16px;
     width: fit-content;
+    font-weight: 500;
   }
   .navLinkClose {
     display: block;
@@ -117,7 +119,7 @@
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
 
   .navLinksOpen {
