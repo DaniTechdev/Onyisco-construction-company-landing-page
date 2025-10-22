@@ -119,6 +119,9 @@ const Header = () => {
               <Link href="#contact" className={styles.navLink}>
                 Contact
               </Link>
+              <button onClick={toggleMenu} className={styles.navLinkClose}>
+                x{" "}
+              </button>
             </div>
 
             <div className={styles.navActions}>
