@@ -53,15 +53,15 @@ const Footer = () => {
           <div className={styles.footerSection}>
             <h4 className={styles.footerTitle}>Contact Info</h4>
             <div className={styles.contactInfo}>
-              <p>📞 +234 801 234 5678</p>
+              <p>📞 +234 8037741430</p>
               <p>📧 info@roofmaster.com</p>
-              <p>📍 123 Construction Ave, Lagos, Nigeria</p>
+              <p>📍 No 10 Trans Aerodrome Road, Emene , Enugu Nigeriaa</p>
             </div>
           </div>
         </div>
 
         <div className={styles.footerBottom}>
-          <p>&copy; 2024 RoofMaster. All rights reserved.</p>
+          <p>&copy; 2025 RoofMaster. All rights reserved.</p>
         </div>
       </div>
     </footer>
