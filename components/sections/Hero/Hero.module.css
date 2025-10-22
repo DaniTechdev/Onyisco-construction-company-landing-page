@@ -98,7 +98,7 @@
 
 @media (max-width: 968px) {
   .hero {
-    margin-top: 75px;
+    /* margin-top: 75px; */
   }
   .heroContent {
     grid-template-columns: 1fr;
