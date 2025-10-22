@@ -227,7 +227,7 @@ const Contact = () => {
     {
       icon: "📞",
       title: "Call Us",
-      details: "+234 801 234 5678",
+      details: "+234 8037741430",
       description: "Mon-Fri from 8am to 6pm",
     },
     {
@@ -239,13 +239,13 @@ const Contact = () => {
     {
       icon: "📍",
       title: "Visit Us",
-      details: "123 Construction Ave, Lagos",
+      details: "No 10 Trans Aerodrome Road, Emene , Enugu Nigeria",
       description: "Office hours: 8am-5pm",
     },
     {
       icon: "💬",
       title: "WhatsApp",
-      details: "+234 801 234 5678",
+      details: "+234 8037741430",
       description: "Quick responses available",
     },
   ];
