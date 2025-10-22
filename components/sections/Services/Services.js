@@ -1,9 +1,19 @@
 // import Button from "@/components/ui/Button/Button";
+// import Button from "../../../components/ul/Button/Button";
+
+// import styles from "./Services.module.css";
+
+"use client";
+import { useState } from "react";
+// import Button from "@/components/ui/Button/Button";
 import Button from "../../../components/ul/Button/Button";
 
+// import QuoteCalculator from "@/components/ui/QuoteCalculator/QuoteCalculator";
+import QuoteCalculator from "../../../components/ul/QuoteCalculator/QuoteCalculator";
 import styles from "./Services.module.css";
 
 const Services = () => {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const services = [
     {
       icon: "🏠",
@@ -80,54 +90,68 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className={`section ${styles.services}`}>
-      <div className="container">
-        <div className={styles.servicesHeader}>
-          <h2 className="section-title">Our Professional Services</h2>
-          <p className="section-subtitle">
-            Comprehensive roofing and construction solutions tailored to meet
-            your specific needs with unmatched quality and professionalism.
-          </p>
-        </div>
-
-        <div className={styles.servicesGrid}>
-          {services.map((service, index) => (
-            <div key={index} className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>{service.icon}</div>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <p className={styles.serviceDescription}>{service.description}</p>
-              <ul className={styles.serviceFeatures}>
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className={styles.serviceFeature}>
-                    ✅ {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button
-                variant="secondary"
-                size="small"
-                className={styles.serviceButton}
-              >
-                Learn More
-              </Button>
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.ctaSection}>
-          <div className={styles.ctaContent}>
-            <h3 className={styles.ctaTitle}>Ready to Start Your Project?</h3>
-            <p className={styles.ctaDescription}>
-              Get a free consultation and quote for your roofing or construction
-              needs.
+    <>
+      <section id="services" className={`section ${styles.services}`}>
+        <div className="container">
+          {/* ... services header and grid remain the same */}
+          <div className={styles.servicesHeader}>
+            <h2 className="section-title">Our Professional Services</h2>
+            <p className="section-subtitle">
+              Comprehensive roofing and construction solutions tailored to meet
+              your specific needs with unmatched quality and professionalism.
             </p>
           </div>
-          <Button variant="accent" size="large">
-            Get Free Quote
-          </Button>
+
+          <div className={styles.servicesGrid}>
+            {services.map((service, index) => (
+              <div key={index} className={styles.serviceCard}>
+                <div className={styles.serviceIcon}>{service.icon}</div>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+                <p className={styles.serviceDescription}>
+                  {service.description}
+                </p>
+                <ul className={styles.serviceFeatures}>
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className={styles.serviceFeature}>
+                      ✅ {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  variant="secondary"
+                  size="small"
+                  className={styles.serviceButton}
+                >
+                  Learn More
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.ctaSection}>
+            <div className={styles.ctaContent}>
+              <h3 className={styles.ctaTitle}>Ready to Start Your Project?</h3>
+              <p className={styles.ctaDescription}>
+                Get a free consultation and quote for your roofing or
+                construction needs.
+              </p>
+            </div>
+            <Button
+              variant="accent"
+              size="large"
+              onClick={() => setIsQuoteModalOpen(true)}
+            >
+              Get Free Quote
+            </Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <QuoteCalculator
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
+    </>
   );
 };
 

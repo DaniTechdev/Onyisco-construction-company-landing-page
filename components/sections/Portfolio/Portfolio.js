@@ -3,9 +3,12 @@ import { useState } from "react";
 // import Button from "@/components/ui/Button/Button";
 import Button from "../../../components/ul/Button/Button";
 import styles from "./Portfolio.module.css";
+// import QuoteCalculator from '@/components/ui/QuoteCalculator/QuoteCalculator';
+import QuoteCalculator from "../../../components/ul/QuoteCalculator/QuoteCalculator";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   const projects = [
     {
@@ -88,74 +91,89 @@ const Portfolio = () => {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className={`section ${styles.portfolio}`}>
-      <div className="container">
-        <div className={styles.portfolioHeader}>
-          <h2 className="section-title">Our Portfolio of Excellence</h2>
-          <p className="section-subtitle">
-            Explore our completed projects that showcase our commitment to
-            quality, innovation, and customer satisfaction in every undertaking.
-          </p>
-        </div>
+    <>
+      <section id="portfolio" className={`section ${styles.portfolio}`}>
+        <div className="container">
+          <div className={styles.portfolioHeader}>
+            <h2 className="section-title">Our Portfolio of Excellence</h2>
+            <p className="section-subtitle">
+              Explore our completed projects that showcase our commitment to
+              quality, innovation, and customer satisfaction in every
+              undertaking.
+            </p>
+          </div>
 
-        <div className={styles.filterButtons}>
-          {filters.map((filter) => (
-            <button
-              key={filter.key}
-              className={`${styles.filterButton} ${
-                activeFilter === filter.key ? styles.active : ""
-              }`}
-              onClick={() => setActiveFilter(filter.key)}
+          <div className={styles.filterButtons}>
+            {filters.map((filter) => (
+              <button
+                key={filter.key}
+                className={`${styles.filterButton} ${
+                  activeFilter === filter.key ? styles.active : ""
+                }`}
+                onClick={() => setActiveFilter(filter.key)}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+
+          <div className={styles.projectsGrid}>
+            {filteredProjects.map((project) => (
+              <div key={project.id} className={styles.projectCard}>
+                <div className={styles.projectImage}>
+                  <div className={styles.imagePlaceholder}>{project.image}</div>
+                  <div className={styles.projectOverlay}>
+                    <Button variant="primary" size="small">
+                      View Details
+                    </Button>
+                  </div>
+                </div>
+                <div className={styles.projectContent}>
+                  <div className={styles.projectCategory}>{project.type}</div>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <p className={styles.projectDescription}>
+                    {project.description}
+                  </p>
+                  <div className={styles.projectMeta}>
+                    <div className={styles.metaItem}>
+                      <span className={styles.metaLabel}>Location:</span>
+                      <span className={styles.metaValue}>
+                        {project.location}
+                      </span>
+                    </div>
+                    <div className={styles.metaItem}>
+                      <span className={styles.metaLabel}>Duration:</span>
+                      <span className={styles.metaValue}>
+                        {project.duration}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.portfolioCta}>
+            <h3 className={styles.ctaTitle}>Have a Project in Mind?</h3>
+            <p className={styles.ctaDescription}>
+              Let's discuss how we can bring your vision to life with our
+              expertise and quality craftsmanship.
+            </p>
+            <Button
+              variant="primary"
+              size="large"
+              onClick={() => setIsQuoteModalOpen(true)}
             >
-              {filter.label}
-            </button>
-          ))}
+              Start Your Project
+            </Button>
+          </div>
         </div>
+      </section>
 
-        <div className={styles.projectsGrid}>
-          {filteredProjects.map((project) => (
-            <div key={project.id} className={styles.projectCard}>
-              <div className={styles.projectImage}>
-                <div className={styles.imagePlaceholder}>{project.image}</div>
-                <div className={styles.projectOverlay}>
-                  <Button variant="primary" size="small">
-                    View Details
-                  </Button>
-                </div>
-              </div>
-              <div className={styles.projectContent}>
-                <div className={styles.projectCategory}>{project.type}</div>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>
-                  {project.description}
-                </p>
-                <div className={styles.projectMeta}>
-                  <div className={styles.metaItem}>
-                    <span className={styles.metaLabel}>Location:</span>
-                    <span className={styles.metaValue}>{project.location}</span>
-                  </div>
-                  <div className={styles.metaItem}>
-                    <span className={styles.metaLabel}>Duration:</span>
-                    <span className={styles.metaValue}>{project.duration}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.portfolioCta}>
-          <h3 className={styles.ctaTitle}>Have a Project in Mind?</h3>
-          <p className={styles.ctaDescription}>
-            Let's discuss how we can bring your vision to life with our
-            expertise and quality craftsmanship.
-          </p>
-          <Button variant="primary" size="large">
-            Start Your Project
-          </Button>
-        </div>
-      </div>
-    </section>
+      <QuoteCalculator
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
+    </>
   );
 };
 
