@@ -95,7 +95,7 @@ const Header = () => {
           <nav className={styles.nav}>
             <div className={styles.logo}>
               <Link href="/">
-                <span className={styles.logoText}>RoofMaster</span>
+                <span className={styles.logoText}>RoofMaster Onyisco</span>
               </Link>
             </div>
 
