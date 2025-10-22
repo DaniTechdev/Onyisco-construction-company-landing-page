@@ -217,7 +217,110 @@
 
 // export default Contact;
 
+// "use client";
+// // import ContactForm from "@/components/ui/ContactForm/ContactForm";
+// import ContactForm from "../../../components/ul/ContactForm/ContactForm";
+// import styles from "./Contact.module.css";
+
+// const Contact = () => {
+//   const contactMethods = [
+//     {
+//       icon: "📞",
+//       title: "Call Us",
+//       details: "+234 8037741430",
+//       description: "Mon-Fri from 8am to 6pm",
+//     },
+//     {
+//       icon: "📧",
+//       title: "Email Us",
+//       details: "info@roofmaster.com",
+//       description: "We reply within 24 hours",
+//     },
+//     {
+//       icon: "📍",
+//       title: "Visit Us",
+//       details: "No 10 Trans Aerodrome Road, Emene , Enugu Nigeria",
+//       description: "Office hours: 8am-5pm",
+//     },
+//     {
+//       icon: "💬",
+//       title: "WhatsApp",
+//       details: "+234 8037741430",
+//       description: "Quick responses available",
+//     },
+//   ];
+
+//   return (
+//     <section id="contact" className={`section ${styles.contact}`}>
+//       <div className="container">
+//         <div className={styles.contactHeader}>
+//           <h2 className="section-title">Get In Touch With Us</h2>
+//           <p className="section-subtitle">
+//             Ready to start your project? Contact us for a free consultation and
+//             quote. Our team is here to answer your questions and provide expert
+//             guidance.
+//           </p>
+//         </div>
+
+//         <div className={styles.contactContent}>
+//           <div className={styles.contactInfo}>
+//             <h3 className={styles.infoTitle}>
+//               Let's Build Something Amazing Together
+//             </h3>
+//             <p className={styles.infoDescription}>
+//               Whether you need a new roof, repairs, or a complete construction
+//               project, we're here to help. Reach out to us through any of the
+//               following methods.
+//             </p>
+
+//             <div className={styles.contactMethods}>
+//               {contactMethods.map((method, index) => (
+//                 <div key={index} className={styles.contactMethod}>
+//                   <div className={styles.methodIcon}>{method.icon}</div>
+//                   <div className={styles.methodContent}>
+//                     <h4 className={styles.methodTitle}>{method.title}</h4>
+//                     <p className={styles.methodDetails}>{method.details}</p>
+//                     <p className={styles.methodDescription}>
+//                       {method.description}
+//                     </p>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+
+//             <div className={styles.businessHours}>
+//               <h4 className={styles.hoursTitle}>Business Hours</h4>
+//               <div className={styles.hoursList}>
+//                 <div className={styles.hourItem}>
+//                   <span>Monday - Friday</span>
+//                   <span>8:00 AM - 6:00 PM</span>
+//                 </div>
+//                 <div className={styles.hourItem}>
+//                   <span>Saturday</span>
+//                   <span>9:00 AM - 2:00 PM</span>
+//                 </div>
+//                 <div className={styles.hourItem}>
+//                   <span>Sunday</span>
+//                   <span>Emergency Services Only</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           <div className={styles.contactFormSection}>
+//             <ContactForm isQuote={false} showTitle={true} />
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Contact;
+
 "use client";
+// import ContactForm from "@/components/ui/ContactForm/ContactForm";
+// import styles from "./Contact.module.css";
 // import ContactForm from "@/components/ui/ContactForm/ContactForm";
 import ContactForm from "../../../components/ul/ContactForm/ContactForm";
 import styles from "./Contact.module.css";
@@ -229,26 +332,44 @@ const Contact = () => {
       title: "Call Us",
       details: "+234 8037741430",
       description: "Mon-Fri from 8am to 6pm",
+      type: "phone",
     },
     {
       icon: "📧",
       title: "Email Us",
       details: "info@roofmaster.com",
       description: "We reply within 24 hours",
+      type: "email",
     },
     {
       icon: "📍",
       title: "Visit Us",
-      details: "No 10 Trans Aerodrome Road, Emene , Enugu Nigeria",
+      details: "No 10 Trans Aerodrome Road, Emene, Enugu Nigeria",
       description: "Office hours: 8am-5pm",
+      type: "address",
     },
     {
       icon: "💬",
       title: "WhatsApp",
       details: "+234 8037741430",
       description: "Quick responses available",
+      type: "whatsapp",
     },
   ];
+
+  // WhatsApp click handler with professional message
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+2348037741430";
+    const message =
+      "Hello! I'm interested in your roofing and construction services. Could you please provide me with more information?";
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <section id="contact" className={`section ${styles.contact}`}>
@@ -275,14 +396,43 @@ const Contact = () => {
 
             <div className={styles.contactMethods}>
               {contactMethods.map((method, index) => (
-                <div key={index} className={styles.contactMethod}>
-                  <div className={styles.methodIcon}>{method.icon}</div>
+                <div
+                  key={index}
+                  className={`${styles.contactMethod} ${
+                    method.type === "whatsapp" ? styles.whatsappMethod : ""
+                  }`}
+                  onClick={
+                    method.type === "whatsapp" ? handleWhatsAppClick : undefined
+                  }
+                >
+                  <div className={styles.methodIcon}>
+                    {method.type === "whatsapp" ? (
+                      <div className={styles.whatsappIcon}>💬</div>
+                    ) : (
+                      method.icon
+                    )}
+                  </div>
                   <div className={styles.methodContent}>
-                    <h4 className={styles.methodTitle}>{method.title}</h4>
+                    <h4 className={styles.methodTitle}>
+                      {method.title}
+                      {method.type === "whatsapp" && (
+                        <span className={styles.whatsappBadge}>
+                          Quick Reply
+                        </span>
+                      )}
+                    </h4>
                     <p className={styles.methodDetails}>{method.details}</p>
                     <p className={styles.methodDescription}>
                       {method.description}
                     </p>
+                    {method.type === "whatsapp" && (
+                      <button
+                        className={styles.whatsappButton}
+                        onClick={handleWhatsAppClick}
+                      >
+                        💬 Message on WhatsApp
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}

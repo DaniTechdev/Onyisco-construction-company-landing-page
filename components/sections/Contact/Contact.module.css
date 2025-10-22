@@ -231,3 +231,270 @@
     font-size: 1.5rem;
   }
 }
+
+.contact {
+  background-color: var(--surface);
+}
+
+.contactHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contactContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.infoDescription {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactMethod {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--background);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.whatsappMethod {
+  cursor: pointer;
+  border: 1px solid #25d366;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 211, 102, 0.05) 0%,
+    rgba(37, 211, 102, 0.02) 100%
+  );
+}
+
+.whatsappMethod:hover {
+  border-color: #25d366;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 211, 102, 0.08) 0%,
+    rgba(37, 211, 102, 0.04) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.15);
+}
+
+.methodIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.whatsappIcon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  color: white;
+}
+
+.methodContent {
+  flex: 1;
+}
+
+.methodTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.whatsappBadge {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.methodDetails {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.methodDescription {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.whatsappButton {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  background: linear-gradient(135deg, #25d366, #20b858);
+}
+
+.businessHours {
+  background: var(--background);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.hoursTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hourItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hourItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.hourItem span:first-child {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.hourItem span:last-child {
+  color: var(--text-secondary);
+}
+
+.contactFormSection {
+  background: var(--background);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* WhatsApp specific animations */
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsappMethod {
+  animation: whatsappPulse 2s infinite;
+}
+
+.whatsappMethod:hover {
+  animation: none;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .contactContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contactFormSection {
+    padding: 2rem;
+  }
+
+  .contactMethod {
+    padding: 1rem;
+  }
+
+  .whatsappButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactFormSection {
+    padding: 1.5rem;
+  }
+
+  .contactMethod {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .methodIcon {
+    align-self: center;
+  }
+
+  .hourItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .whatsappButton {
+    font-size: 0.8rem;
+  }
+}
